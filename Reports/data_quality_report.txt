@@ -1,0 +1,42 @@
+=================================================================
+  E-COMMERCE BI PLATFORM — DATA QUALITY REPORT
+  Generated: 2026-06-18 04:12:55
+=================================================================
+
+RAW DATASET
+----------------------------------------
+  rows                     : 50200
+  columns                  : 23
+  duplicates               : 200
+  total_nulls              : 47593
+  memory_mb                : 52.41
+
+CLEANED DATASET
+----------------------------------------
+  rows                     : 50000
+  columns                  : 30
+  duplicates               : 0
+  total_nulls              : 0
+  memory_mb                : 60.53
+  date_range               : 2022-03-01 to 2022-06-30
+  total_revenue            : 127012691.25
+  total_orders             : 50000
+  total_qty                : 82365
+  avg_order_value          : 2540.25
+  categories               : 10
+  states                   : 21
+
+CLEANING ACTIONS PERFORMED
+----------------------------------------
+  01. Removed 200 duplicate rows
+  02. Standardised all column names (lowercase, underscores)
+  03. Converted 'date' to datetime, extracted year/month/quarter/week features
+  04. Filled 1980 missing 'amount' values with median (₹2,083.35)
+  05. Filled 1490 missing 'ship_city' with 'Unknown'
+  06. Filled 1028 missing 'ship_state' with 'Unknown'
+  07. Filled 1051 missing 'status' with mode ('Shipped')
+  08. Filled missing courier_status, promotion_ids, fulfilled_by
+  09. Computed unit_price = amount / qty
+  10. Capped amount outliers via IQR Winsorisation (3×IQR)
+  11. Normalised B2B column to Yes/No
+  12. Title-cased all categorical string columns

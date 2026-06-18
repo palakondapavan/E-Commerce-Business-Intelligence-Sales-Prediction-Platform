@@ -1,0 +1,38 @@
+{
+  "report_generated_at": "2026-06-18 04:12:55",
+  "raw_dataset": {
+    "rows": 50200,
+    "columns": 23,
+    "duplicates": 200,
+    "total_nulls": 47593,
+    "memory_mb": 52.41
+  },
+  "cleaned_dataset": {
+    "rows": 50000,
+    "columns": 30,
+    "duplicates": 0,
+    "total_nulls": 0,
+    "memory_mb": 60.53,
+    "date_range": "2022-03-01 to 2022-06-30",
+    "total_revenue": 127012691.25,
+    "total_orders": 50000,
+    "total_qty": 82365,
+    "avg_order_value": 2540.25,
+    "categories": 10,
+    "states": 21
+  },
+  "cleaning_actions": [
+    "Removed 200 duplicate rows",
+    "Standardised all column names (lowercase, underscores)",
+    "Converted 'date' to datetime, extracted year/month/quarter/week features",
+    "Filled 1980 missing 'amount' values with median (\u20b92,083.35)",
+    "Filled 1490 missing 'ship_city' with 'Unknown'",
+    "Filled 1028 missing 'ship_state' with 'Unknown'",
+    "Filled 1051 missing 'status' with mode ('Shipped')",
+    "Filled missing courier_status, promotion_ids, fulfilled_by",
+    "Computed unit_price = amount / qty",
+    "Capped amount outliers via IQR Winsorisation (3\u00d7IQR)",
+    "Normalised B2B column to Yes/No",
+    "Title-cased all categorical string columns"
+  ]
+}
